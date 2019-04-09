@@ -43,3 +43,13 @@ function alecaddd_gutenberg_default_colors()
     );
 }
 add_action( 'init', 'alecaddd_gutenberg_default_colors' );
+
+function alecaddd_gutenberg_blocks()
+{
+    wp_register_script( 'custom-cta-js', get_template_directory_uri() . '/js/gutenberg-cta-block.js', array( 'wp-blocks' ));
+
+    register_block_type( 'alecaddd/custom-cta', array(
+        'editor_script' => 'custom-cta-js'
+    ) );
+}
+add_action( 'init', 'alecaddd_gutenberg_blocks' );
