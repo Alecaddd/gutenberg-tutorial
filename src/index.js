@@ -11,7 +11,9 @@ registerBlockType('alecaddd/custom-cta', {
 
     // custom functions
 
-    edit() {},
+    edit() {
+        return <p>Edited</p>;
+    },
 
     save() {}
 });
