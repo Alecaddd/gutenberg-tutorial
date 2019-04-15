@@ -7,13 +7,22 @@ registerBlockType('alecaddd/custom-cta', {
     category: 'layout',
 
     // custom attributes
-    attributes: {},
-
-    // custom functions
-
-    edit() {
-        return <p>Edited</p>;
+    attributes: {
+        author: {
+            type: 'string'
+        }
     },
 
-    save() {}
+    edit({ attributes, setAttributes }) {
+        // custom functions
+        function updateAuthor(event) {
+            setAttributes( { author: event.target.value } );
+        }
+
+        return <input value={ attributes.author } onChange={ updateAuthor } type="text" />;
+    },
+
+    save({ attributes }) {
+        return <p>Author Name: <i>{ attributes.author }</i></p>;
+    }
 });
