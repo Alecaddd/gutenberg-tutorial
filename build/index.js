@@ -84,7 +84,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 
 var registerBlockType = wp.blocks.registerBlockType;
-var RichText = wp.editor.RichText;
+var _wp$editor = wp.editor,
+    RichText = _wp$editor.RichText,
+    InspectorControls = _wp$editor.InspectorControls,
+    ColorPalette = _wp$editor.ColorPalette;
+var PanelBody = wp.components.PanelBody;
 registerBlockType('alecaddd/custom-cta', {
   title: 'Call to Action',
   description: 'Block to generate a custom Call to Action',
@@ -97,6 +101,10 @@ registerBlockType('alecaddd/custom-cta', {
       source: 'html',
       selector: 'h2'
     },
+    titleColor: {
+      type: 'string',
+      default: 'black'
+    },
     body: {
       type: 'string',
       source: 'html',
@@ -107,7 +115,8 @@ registerBlockType('alecaddd/custom-cta', {
     var attributes = _ref.attributes,
         setAttributes = _ref.setAttributes;
     var title = attributes.title,
-        body = attributes.body; // custom functions
+        body = attributes.body,
+        titleColor = attributes.titleColor; // custom functions
 
     function onChangeTitle(newTitle) {
       setAttributes({
@@ -121,14 +130,32 @@ registerBlockType('alecaddd/custom-cta', {
       });
     }
 
-    return [Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    function onTitleColorChange(newColor) {
+      setAttributes({
+        titleColor: newColor
+      });
+    }
+
+    return [Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InspectorControls, {
+      style: {
+        marginBottom: '40px'
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+      title: 'Font Color Settings'
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("strong", null, "Select a Title color:")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ColorPalette, {
+      value: titleColor,
+      onChange: onTitleColorChange
+    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       class: "cta-container"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText, {
       key: "editable",
       tagName: "h2",
       placeholder: "Your CTA Title",
       value: title,
-      onChange: onChangeTitle
+      onChange: onChangeTitle,
+      style: {
+        color: titleColor
+      }
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText, {
       key: "editable",
       tagName: "p",
@@ -140,10 +167,15 @@ registerBlockType('alecaddd/custom-cta', {
   save: function save(_ref2) {
     var attributes = _ref2.attributes;
     var title = attributes.title,
-        body = attributes.body;
+        body = attributes.body,
+        titleColor = attributes.titleColor;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       class: "cta-container"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, title), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
+      style: {
+        color: titleColor
+      }
+    }, title), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
       tagName: "p",
       value: body
     }));
