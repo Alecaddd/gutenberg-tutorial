@@ -5,7 +5,7 @@ const {
     ColorPalette,
     MediaUpload
 } = wp.editor;
-const { PanelBody, IconButton } = wp.components;
+const { PanelBody, IconButton, RangeControl } = wp.components;
 
 registerBlockType('alecaddd/custom-cta', {
     title: 'Call to Action',
@@ -32,6 +32,14 @@ registerBlockType('alecaddd/custom-cta', {
         backgroundImage: {
             type: 'string',
             default: null
+        },
+        overlayColor: {
+            type: 'string',
+            default: 'black'
+        },
+        overlayOpacity: {
+            type: 'number',
+            default: 0.3
         }
     },
 
@@ -40,7 +48,9 @@ registerBlockType('alecaddd/custom-cta', {
             title,
             body,
             titleColor,
-            backgroundImage
+            backgroundImage,
+            overlayColor,
+            overlayOpacity
         } = attributes;
 
         // custom functions
@@ -58,6 +68,14 @@ registerBlockType('alecaddd/custom-cta', {
 
         function onSelectImage(newImage) {
             setAttributes( { backgroundImage: newImage.sizes.full.url } );
+        }
+
+        function onOverlayColorChange(newColor) {
+            setAttributes( { overlayColor: newColor } );
+        }
+
+        function onOverlayOpacityChange(newOpacity) {
+            setAttributes( { overlayOpacity: newOpacity } );
         }
 
         return ([
@@ -80,10 +98,27 @@ registerBlockType('alecaddd/custom-cta', {
 								onClick={ open }>
 								 Background Image
 							</IconButton>
-						)}/>
+                        )}/>
+                    <div style={{ marginTop: '20px', marginBottom: '40px' }}>
+                        <p><strong>Overlay Color:</strong></p>
+                        <ColorPalette value={ overlayColor }
+                            onChange={ onOverlayColorChange } />
+                    </div>
+                    <RangeControl
+                        label={ 'Overlay Opacity' }
+                        value={ overlayOpacity }
+                        onChange={ onOverlayOpacityChange }
+                        min={ 0 }
+                        max={ 1 }
+                        step={ 0.01 }/>
                 </PanelBody>
             </InspectorControls>,
-            <div class="cta-container">
+            <div class="cta-container" style={{
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}>
                 <RichText key="editable"
                           tagName="h2"
                           placeholder="Your CTA Title"
@@ -103,11 +138,17 @@ registerBlockType('alecaddd/custom-cta', {
         const {
             title,
             body,
-            titleColor
+            titleColor,
+            backgroundImage
         } = attributes;
 
         return (
-            <div class="cta-container">
+            <div class="cta-container" style={{
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}>
                 <h2 style={ { color: titleColor } }>{ title }</h2>
                 <RichText.Content tagName="p"
                                   value={ body }/>

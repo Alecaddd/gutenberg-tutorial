@@ -91,7 +91,8 @@ var _wp$editor = wp.editor,
     MediaUpload = _wp$editor.MediaUpload;
 var _wp$components = wp.components,
     PanelBody = _wp$components.PanelBody,
-    IconButton = _wp$components.IconButton;
+    IconButton = _wp$components.IconButton,
+    RangeControl = _wp$components.RangeControl;
 registerBlockType('alecaddd/custom-cta', {
   title: 'Call to Action',
   description: 'Block to generate a custom Call to Action',
@@ -116,6 +117,14 @@ registerBlockType('alecaddd/custom-cta', {
     backgroundImage: {
       type: 'string',
       default: null
+    },
+    overlayColor: {
+      type: 'string',
+      default: 'black'
+    },
+    overlayOpacity: {
+      type: 'number',
+      default: 0.3
     }
   },
   edit: function edit(_ref) {
@@ -124,7 +133,9 @@ registerBlockType('alecaddd/custom-cta', {
     var title = attributes.title,
         body = attributes.body,
         titleColor = attributes.titleColor,
-        backgroundImage = attributes.backgroundImage; // custom functions
+        backgroundImage = attributes.backgroundImage,
+        overlayColor = attributes.overlayColor,
+        overlayOpacity = attributes.overlayOpacity; // custom functions
 
     function onChangeTitle(newTitle) {
       setAttributes({
@@ -147,6 +158,18 @@ registerBlockType('alecaddd/custom-cta', {
     function onSelectImage(newImage) {
       setAttributes({
         backgroundImage: newImage.sizes.full.url
+      });
+    }
+
+    function onOverlayColorChange(newColor) {
+      setAttributes({
+        overlayColor: newColor
+      });
+    }
+
+    function onOverlayOpacityChange(newOpacity) {
+      setAttributes({
+        overlayOpacity: newOpacity
       });
     }
 
@@ -173,8 +196,29 @@ registerBlockType('alecaddd/custom-cta', {
           onClick: open
         }, "Background Image");
       }
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      style: {
+        marginTop: '20px',
+        marginBottom: '40px'
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("strong", null, "Overlay Color:")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ColorPalette, {
+      value: overlayColor,
+      onChange: onOverlayColorChange
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RangeControl, {
+      label: 'Overlay Opacity',
+      value: overlayOpacity,
+      onChange: onOverlayOpacityChange,
+      min: 0,
+      max: 1,
+      step: 0.01
     }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      class: "cta-container"
+      class: "cta-container",
+      style: {
+        backgroundImage: "url(".concat(backgroundImage, ")"),
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText, {
       key: "editable",
       tagName: "h2",
@@ -196,9 +240,16 @@ registerBlockType('alecaddd/custom-cta', {
     var attributes = _ref3.attributes;
     var title = attributes.title,
         body = attributes.body,
-        titleColor = attributes.titleColor;
+        titleColor = attributes.titleColor,
+        backgroundImage = attributes.backgroundImage;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      class: "cta-container"
+      class: "cta-container",
+      style: {
+        backgroundImage: "url(".concat(backgroundImage, ")"),
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
       style: {
         color: titleColor
