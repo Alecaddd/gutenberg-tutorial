@@ -102,7 +102,7 @@ registerBlockType('alecaddd/custom-cta', {
                     <div style={{ marginTop: '20px', marginBottom: '40px' }}>
                         <p><strong>Overlay Color:</strong></p>
                         <ColorPalette value={ overlayColor }
-                            onChange={ onOverlayColorChange } />
+                                      onChange={ onOverlayColorChange } />
                     </div>
                     <RangeControl
                         label={ 'Overlay Opacity' }
