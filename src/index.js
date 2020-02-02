@@ -119,6 +119,7 @@ registerBlockType('alecaddd/custom-cta', {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
             }}>
+                <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
                 <RichText key="editable"
                           tagName="h2"
                           placeholder="Your CTA Title"
@@ -139,7 +140,9 @@ registerBlockType('alecaddd/custom-cta', {
             title,
             body,
             titleColor,
-            backgroundImage
+            backgroundImage,
+            overlayColor,
+            overlayOpacity
         } = attributes;
 
         return (
@@ -149,6 +152,7 @@ registerBlockType('alecaddd/custom-cta', {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
             }}>
+            <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
                 <h2 style={ { color: titleColor } }>{ title }</h2>
                 <RichText.Content tagName="p"
                                   value={ body }/>

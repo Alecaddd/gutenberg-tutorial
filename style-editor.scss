@@ -739,3 +739,13 @@ ul.wp-block-archives,
 		}
 	}
 }
+
+.cta-container {
+	padding: 10px 20px;
+	text-align: center;
+
+	.cta-overlay {
+		position: absolute;
+		inset: 0px;
+	}
+}
