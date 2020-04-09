@@ -1293,19 +1293,3 @@ ul.wp-block-archives li ul,
   line-height: 1.6;
   color: #767676;
 }
-
-.cta-container {
-  padding: 10px 20px;
-  text-align: center;
-}
-
-.cta-container .cta-overlay {
-  position: absolute;
-  inset: 0px;
-}
-
-.cta-container * {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
