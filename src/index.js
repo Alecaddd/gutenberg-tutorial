@@ -43,7 +43,7 @@ registerBlockType('alecaddd/custom-cta', {
         }
     },
 
-    edit: ({ attributes, setAttributes }) => {
+    edit({ attributes, setAttributes }) {
         const {
             title,
             body,
@@ -113,7 +113,7 @@ registerBlockType('alecaddd/custom-cta', {
                         step={ 0.01 }/>
                 </PanelBody>
             </InspectorControls>,
-            <div className="cta-container" style={{
+            <div class="cta-container" style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -135,7 +135,7 @@ registerBlockType('alecaddd/custom-cta', {
         ]);
     },
 
-    save: ({ attributes }) => {
+    save({ attributes }) {
         const {
             title,
             body,
@@ -146,7 +146,7 @@ registerBlockType('alecaddd/custom-cta', {
         } = attributes;
 
         return (
-            <div className="cta-container" style={{
+            <div class="cta-container" style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
