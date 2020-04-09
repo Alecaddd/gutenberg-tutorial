@@ -748,4 +748,10 @@ ul.wp-block-archives,
 		position: absolute;
 		inset: 0px;
 	}
+
+	* {
+		text-align: center;
+		position: relative;
+		z-index: 1;
+	}
 }

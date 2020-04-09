@@ -1303,3 +1303,9 @@ ul.wp-block-archives li ul,
   position: absolute;
   inset: 0px;
 }
+
+.cta-container * {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}

@@ -41,7 +41,7 @@
     "build:print": "node-sass print.scss print.css --output-style expanded && postcss -r print.css",
     "build:scripts": "wp-scripts build",
     "build": "run-p \"build:*\"",
-    "watch": "chokidar \"**/*.scss\" -c \"npm run build\" --initial",
+    "watch": "chokidar \"**/*.scss\" \"src/*.js\" -c \"npm run build\" --initial",
     "start-build": "wp-scripts start"
   }
 }

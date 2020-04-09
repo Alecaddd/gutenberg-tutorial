@@ -43,7 +43,7 @@ registerBlockType('alecaddd/custom-cta', {
         }
     },
 
-    edit({ attributes, setAttributes }) {
+    edit: ({ attributes, setAttributes }) => {
         const {
             title,
             body,
@@ -113,7 +113,7 @@ registerBlockType('alecaddd/custom-cta', {
                         step={ 0.01 }/>
                 </PanelBody>
             </InspectorControls>,
-            <div class="cta-container" style={{
+            <div className="cta-container" style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -131,11 +131,11 @@ registerBlockType('alecaddd/custom-cta', {
                           placeholder="Your CTA Description"
                           value={ body }
                           onChange={ onChangeBody }/>
-            </div>
+            </div>,
         ]);
     },
 
-    save({ attributes }) {
+    save: ({ attributes }) => {
         const {
             title,
             body,
@@ -146,13 +146,13 @@ registerBlockType('alecaddd/custom-cta', {
         } = attributes;
 
         return (
-            <div class="cta-container" style={{
+            <div className="cta-container" style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
             }}>
-            <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
+                <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
                 <h2 style={ { color: titleColor } }>{ title }</h2>
                 <RichText.Content tagName="p"
                                   value={ body }/>
