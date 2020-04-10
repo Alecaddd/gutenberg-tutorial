@@ -3,9 +3,11 @@ const {
     RichText,
     InspectorControls,
     ColorPalette,
-    MediaUpload
+    MediaUpload,
+    InnerBlocks
 } = wp.editor;
 const { PanelBody, IconButton, RangeControl } = wp.components;
+const ALLOWED_BLOCKS = ['core/button'];
 
 registerBlockType('alecaddd/custom-cta', {
     title: 'Call to Action',
@@ -131,6 +133,7 @@ registerBlockType('alecaddd/custom-cta', {
                           placeholder="Your CTA Description"
                           value={ body }
                           onChange={ onChangeBody }/>
+                <InnerBlocks allowedBlocks={ ALLOWED_BLOCKS }/>
             </div>,
         ]);
     },
@@ -156,6 +159,7 @@ registerBlockType('alecaddd/custom-cta', {
                 <h2 style={ { color: titleColor } }>{ title }</h2>
                 <RichText.Content tagName="p"
                                   value={ body }/>
+                <InnerBlocks.Content />
             </div>
         );
     }
