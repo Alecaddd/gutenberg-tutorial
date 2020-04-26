@@ -4,7 +4,9 @@ const {
     InspectorControls,
     ColorPalette,
     MediaUpload,
-    InnerBlocks
+    InnerBlocks,
+    BlockControls,
+    AlignmentToolbar
 } = wp.editor;
 const { PanelBody, IconButton, RangeControl } = wp.components;
 const ALLOWED_BLOCKS = ['core/button'];
@@ -31,6 +33,10 @@ registerBlockType('alecaddd/custom-cta', {
             source: 'html',
             selector: 'p'
         },
+        alignment: {
+            type: 'string',
+            default: 'none',
+        },
         backgroundImage: {
             type: 'string',
             default: null
@@ -49,6 +55,7 @@ registerBlockType('alecaddd/custom-cta', {
         const {
             title,
             body,
+            alignment,
             titleColor,
             backgroundImage,
             overlayColor,
@@ -122,6 +129,11 @@ registerBlockType('alecaddd/custom-cta', {
                 backgroundRepeat: 'no-repeat'
             }}>
                 <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
+                {
+                    <BlockControls>
+                        <AlignmentToolbar value={ alignment }/>
+                    </BlockControls>
+                }
                 <RichText key="editable"
                           tagName="h2"
                           placeholder="Your CTA Title"
