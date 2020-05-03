@@ -87,6 +87,12 @@ registerBlockType('alecaddd/custom-cta', {
             setAttributes( { overlayOpacity: newOpacity } );
         }
 
+        function onChangeAlignment(newAlignment) {
+            setAttributes( {
+                alignment: newAlignment === undefined ? 'none' : newAlignment
+            } );
+        }
+
         return ([
             <InspectorControls style={ { marginBottom: '40px' } }>
                 <PanelBody title={ 'Font Color Settings' }>
@@ -131,7 +137,8 @@ registerBlockType('alecaddd/custom-cta', {
                 <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
                 {
                     <BlockControls>
-                        <AlignmentToolbar value={ alignment }/>
+                        <AlignmentToolbar value={ alignment }
+                            onChange={ onChangeAlignment }/>
                     </BlockControls>
                 }
                 <RichText key="editable"
@@ -139,12 +146,13 @@ registerBlockType('alecaddd/custom-cta', {
                           placeholder="Your CTA Title"
                           value={ title }
                           onChange={ onChangeTitle }
-                          style={ { color: titleColor } }/>
+                          style={ { color: titleColor, textAlign: alignment } }/>
                 <RichText key="editable"
                           tagName="p"
                           placeholder="Your CTA Description"
                           value={ body }
-                          onChange={ onChangeBody }/>
+                          onChange={ onChangeBody }
+                          style={ { textAlign: alignment } }/>
                 <InnerBlocks allowedBlocks={ ALLOWED_BLOCKS }/>
             </div>,
         ]);
@@ -154,6 +162,7 @@ registerBlockType('alecaddd/custom-cta', {
         const {
             title,
             body,
+            alignment,
             titleColor,
             backgroundImage,
             overlayColor,
@@ -168,9 +177,10 @@ registerBlockType('alecaddd/custom-cta', {
                 backgroundRepeat: 'no-repeat'
             }}>
                 <div className="cta-overlay" style={{background: overlayColor, opacity: overlayOpacity}}></div>
-                <h2 style={ { color: titleColor } }>{ title }</h2>
+                <h2 style={ { color: titleColor, textAlign: alignment } }>{ title }</h2>
                 <RichText.Content tagName="p"
-                                  value={ body }/>
+                                  value={ body }
+                                  style={ { textAlign: alignment } }/>
                 <InnerBlocks.Content />
             </div>
         );
