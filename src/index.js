@@ -43,22 +43,19 @@ registerBlockType( 'create-block/alecaddd-giveaway', {
 	 * This is a short description for your block, can be translated with `i18n` functions.
 	 * It will be shown in the Block Tab in the Settings Sidebar.
 	 */
-	description: __(
-		'Example block written with ESNext standard and JSX support – build step required.',
-		'alecaddd-giveaway'
-	),
+	description: __( 'Giveaway and Reward Block.', 'alecaddd-giveaway' ),
 
 	/**
 	 * Blocks are grouped into categories to help users browse and discover them.
 	 * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
 	 */
-	category: 'widgets',
+	category: 'common',
 
 	/**
 	 * An icon property should be specified to make it easier to identify a block.
 	 * These can be any of WordPress’ Dashicons, or a custom svg element.
 	 */
-	icon: 'smiley',
+	icon: 'awards',
 
 	/**
 	 * Optional block extended support features.
@@ -66,6 +63,62 @@ registerBlockType( 'create-block/alecaddd-giveaway', {
 	supports: {
 		// Removes support for an HTML mode.
 		html: false,
+	},
+
+	attributes: {
+		title: {
+			type: 'string',
+			source: 'html',
+			selector: 'h2'
+		},
+		titleColor: {
+			type: 'string',
+			default: '#333'
+		},
+		description: {
+			type: 'string',
+			source: 'html',
+			selector: 'p'
+		},
+		descriptionColor: {
+			type: 'string',
+			default: '#333'
+		},
+		accounts: {
+			default: {
+				twitter: false,
+				tweet: false,
+				youtube: false,
+				facebook: false
+			}
+		},
+		twitter: {
+			default: {
+				text: '',
+				account: ''
+			}
+		},
+		tweet: {
+			default: {
+				text: '',
+				message: '',
+				url: ''
+			}
+		},
+		youtube: {
+			default: {
+				text: '',
+				url: ''
+			}
+		},
+		facebook: {
+			default: {
+				text: '',
+				url: ''
+			}
+		}
+		// Immediate Reward: Download Link/Button
+		// Enter Giveaway: Store the user's email and actions
 	},
 
 	/**
