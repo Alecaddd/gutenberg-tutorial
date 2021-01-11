@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import { RichText } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -14,13 +15,19 @@ import { __ } from '@wordpress/i18n';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save( props ) {
 	return (
-		<p>
-			{ __(
-				'Alecaddd Giveaway – hello from the saved content!',
-				'alecaddd-giveaway'
-			) }
-		</p>
+		<div>
+			<RichText.Content
+				tagName="h2"
+				value={ props.attributes.title }
+				style={{ color: props.attributes.titleColor }}
+			/>
+			<RichText.Content
+				tagName="p"
+				value={ props.attributes.description }
+				style={{ color: props.attributes.descriptionColor }}
+			/>
+		</div>
 	);
 }

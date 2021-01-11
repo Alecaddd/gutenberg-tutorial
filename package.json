@@ -14,6 +14,7 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^12.5.0"
+		"@wordpress/scripts": "^12.5.0",
+		"prettier": "npm:wp-prettier@^2.2.1-beta-1"
 	}
 }

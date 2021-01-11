@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import { RichText } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -24,13 +25,23 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { className } ) {
+export default function Edit( { className, attributes, setAttributes } ) {
 	return (
-		<p className={ className }>
-			{ __(
-				'Alecaddd Giveaway – hello from the editor!',
-				'alecaddd-giveaway'
-			) }
-		</p>
+		<div className={ className }>
+			<RichText
+				tagName="h2"
+				placeholder="Giveaway Title"
+				value={ attributes.title }
+				onChange={ (title) => setAttributes( { title }) }
+				style={{ color: attributes.titleColor }}
+			/>
+			<RichText
+				tagName="p"
+				placeholder="Giveaway Description"
+				value={ attributes.description }
+				onChange={ (description) => setAttributes( { description }) }
+				style={{ color: attributes.descriptionColor }}
+			/>
+		</div>
 	);
 }
