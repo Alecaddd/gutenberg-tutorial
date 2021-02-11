@@ -66,24 +66,6 @@ registerBlockType( 'create-block/alecaddd-giveaway', {
 	},
 
 	attributes: {
-		title: {
-			type: 'string',
-			source: 'html',
-			selector: 'h2'
-		},
-		titleColor: {
-			type: 'string',
-			default: '#333'
-		},
-		description: {
-			type: 'string',
-			source: 'html',
-			selector: 'p'
-		},
-		descriptionColor: {
-			type: 'string',
-			default: '#333'
-		},
 		accounts: {
 			default: {
 				twitter: false,

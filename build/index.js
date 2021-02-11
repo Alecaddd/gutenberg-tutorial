@@ -197,6 +197,14 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+var MY_TEMPLATE = [["core/image", {}], ["core/heading", {
+  placeholder: "Giveaway Title"
+}], ["core/paragraph", {
+  placeholder: "Giveaway description"
+}], // Custom block for Social Media!
+["core/button", {
+  placeholder: "Call to Action"
+}]];
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -223,30 +231,9 @@ function Edit(_ref) {
       setAttributes = _ref.setAttributes;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: className
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-    tagName: "h2",
-    placeholder: "Giveaway Title",
-    value: attributes.title,
-    onChange: function onChange(title) {
-      return setAttributes({
-        title: title
-      });
-    },
-    style: {
-      color: attributes.titleColor
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-    tagName: "p",
-    placeholder: "Giveaway Description",
-    value: attributes.description,
-    onChange: function onChange(description) {
-      return setAttributes({
-        description: description
-      });
-    },
-    style: {
-      color: attributes.descriptionColor
-    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"], {
+    template: MY_TEMPLATE,
+    templateLock: "insert"
   }));
 }
 
@@ -347,24 +334,6 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('cre
     html: false
   },
   attributes: {
-    title: {
-      type: 'string',
-      source: 'html',
-      selector: 'h2'
-    },
-    titleColor: {
-      type: 'string',
-      default: '#333'
-    },
-    description: {
-      type: 'string',
-      source: 'html',
-      selector: 'p'
-    },
-    descriptionColor: {
-      type: 'string',
-      default: '#333'
-    },
     accounts: {
       default: {
         twitter: false,
@@ -451,19 +420,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function save(props) {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
-    tagName: "h2",
-    value: props.attributes.title,
-    style: {
-      color: props.attributes.titleColor
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
-    tagName: "p",
-    value: props.attributes.description,
-    style: {
-      color: props.attributes.descriptionColor
-    }
-  }));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"].Content, null));
 }
 
 /***/ }),

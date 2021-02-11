@@ -4,8 +4,15 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import { RichText } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
+const MY_TEMPLATE = [
+	["core/image", {}],
+	["core/heading", { placeholder: "Giveaway Title" }],
+	["core/paragraph", { placeholder: "Giveaway description" }],
+	// Custom block for Social Media!
+	["core/button", { placeholder: "Call to Action" }]
+]
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -28,20 +35,7 @@ import './editor.scss';
 export default function Edit( { className, attributes, setAttributes } ) {
 	return (
 		<div className={ className }>
-			<RichText
-				tagName="h2"
-				placeholder="Giveaway Title"
-				value={ attributes.title }
-				onChange={ (title) => setAttributes( { title }) }
-				style={{ color: attributes.titleColor }}
-			/>
-			<RichText
-				tagName="p"
-				placeholder="Giveaway Description"
-				value={ attributes.description }
-				onChange={ (description) => setAttributes( { description }) }
-				style={{ color: attributes.descriptionColor }}
-			/>
+			<InnerBlocks template={MY_TEMPLATE} templateLock="insert" />
 		</div>
 	);
 }
