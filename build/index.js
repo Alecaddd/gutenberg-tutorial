@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["style-index"],{
+(window["webpackJsonp_alecaddd_giveaway"] = window["webpackJsonp_alecaddd_giveaway"] || []).push([["style-index"],{
 
 /***/ "./src/style.scss":
 /*!************************!*\
@@ -154,7 +154,7 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var jsonpArray = window["webpackJsonp_alecaddd_giveaway"] = window["webpackJsonp_alecaddd_giveaway"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
@@ -169,6 +169,76 @@
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./src/blocks/social-row-block.json":
+/*!******************************************!*\
+  !*** ./src/blocks/social-row-block.json ***!
+  \******************************************/
+/*! exports provided: name, title, category, icon, parent, description, textdomain, support, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"name\":\"create-block/alecaddd-giveaway-social-row\",\"title\":\"Social Row\",\"category\":\"widgets\",\"icon\":\"smiley\",\"parent\":[\"create-block/alecaddd-giveaway\"],\"description\":\"Add a social media row to the Giveaway Block\",\"textdomain\":\"alecaddd-giveaway\",\"support\":{\"html\":false}}");
+
+/***/ }),
+
+/***/ "./src/blocks/social-row.js":
+/*!**********************************!*\
+  !*** ./src/blocks/social-row.js ***!
+  \**********************************/
+/*! exports provided: metadata, name, settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "name", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./social-row-block.json */ "./src/blocks/social-row-block.json");
+var _social_row_block_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./social-row-block.json */ "./src/blocks/social-row-block.json", 1);
+/* harmony reexport (default from named exports) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__; });
+
+
+var name = _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__.name;
+
+var settings = {
+  icon: "smiley",
+  edit: function edit() {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, "Child Element");
+  },
+  save: function save() {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, "Child Element");
+  }
+};
+
+/***/ }),
 
 /***/ "./src/edit.js":
 /*!*********************!*\
@@ -201,8 +271,7 @@ var MY_TEMPLATE = [["core/image", {}], ["core/heading", {
   placeholder: "Giveaway Title"
 }], ["core/paragraph", {
   placeholder: "Giveaway description"
-}], // Custom block for Social Media!
-["core/button", {
+}], ["create-block/alecaddd-giveaway-social-row"], ["core/button", {
   placeholder: "Call to Action"
 }]];
 /**
@@ -259,14 +328,23 @@ function Edit(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _blocks_social_row__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/social-row */ "./src/blocks/social-row.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -301,18 +379,18 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('create-block/alecaddd-giveaway', {
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('create-block/alecaddd-giveaway', {
   /**
    * This is the display title for your block, which can be translated with `i18n` functions.
    * The block inserter will show this name.
    */
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Alecaddd Giveaway', 'alecaddd-giveaway'),
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Alecaddd Giveaway', 'alecaddd-giveaway'),
 
   /**
    * This is a short description for your block, can be translated with `i18n` functions.
    * It will be shown in the Block Tab in the Settings Sidebar.
    */
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Giveaway and Reward Block.', 'alecaddd-giveaway'),
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Giveaway and Reward Block.', 'alecaddd-giveaway'),
 
   /**
    * Blocks are grouped into categories to help users browse and discover them.
@@ -374,13 +452,21 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('cre
   /**
    * @see ./edit.js
    */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  edit: _edit__WEBPACK_IMPORTED_MODULE_4__["default"],
 
   /**
    * @see ./save.js
    */
-  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
+/**
+ * Child blocks
+ */
+
+
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])(_objectSpread({
+  name: _blocks_social_row__WEBPACK_IMPORTED_MODULE_6__["name"]
+}, _blocks_social_row__WEBPACK_IMPORTED_MODULE_6__["metadata"]), _blocks_social_row__WEBPACK_IMPORTED_MODULE_6__["settings"]);
 
 /***/ }),
 
@@ -426,46 +512,46 @@ function save(props) {
 /***/ }),
 
 /***/ "@wordpress/block-editor":
-/*!**********************************************!*\
-  !*** external {"this":["wp","blockEditor"]} ***!
-  \**********************************************/
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function() { module.exports = this["wp"]["blockEditor"]; }());
+(function() { module.exports = window["wp"]["blockEditor"]; }());
 
 /***/ }),
 
 /***/ "@wordpress/blocks":
-/*!*****************************************!*\
-  !*** external {"this":["wp","blocks"]} ***!
-  \*****************************************/
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function() { module.exports = this["wp"]["blocks"]; }());
+(function() { module.exports = window["wp"]["blocks"]; }());
 
 /***/ }),
 
 /***/ "@wordpress/element":
-/*!******************************************!*\
-  !*** external {"this":["wp","element"]} ***!
-  \******************************************/
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function() { module.exports = this["wp"]["element"]; }());
+(function() { module.exports = window["wp"]["element"]; }());
 
 /***/ }),
 
 /***/ "@wordpress/i18n":
-/*!***************************************!*\
-  !*** external {"this":["wp","i18n"]} ***!
-  \***************************************/
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function() { module.exports = this["wp"]["i18n"]; }());
+(function() { module.exports = window["wp"]["i18n"]; }());
 
 /***/ })
 

@@ -1,0 +1,12 @@
+{
+    "name": "create-block/alecaddd-giveaway-social-row",
+    "title": "Social Row",
+    "category": "widgets",
+    "icon": "smiley",
+    "parent": ["create-block/alecaddd-giveaway"],
+    "description": "Add a social media row to the Giveaway Block",
+    "textdomain": "alecaddd-giveaway",
+    "support": {
+        "html": false
+    }
+}

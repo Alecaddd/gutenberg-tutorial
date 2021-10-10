@@ -10,9 +10,9 @@ const MY_TEMPLATE = [
 	["core/image", {}],
 	["core/heading", { placeholder: "Giveaway Title" }],
 	["core/paragraph", { placeholder: "Giveaway description" }],
-	// Custom block for Social Media!
-	["core/button", { placeholder: "Call to Action" }]
-]
+	["create-block/alecaddd-giveaway-social-row"],
+	["core/button", { placeholder: "Call to Action" }],
+];
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.

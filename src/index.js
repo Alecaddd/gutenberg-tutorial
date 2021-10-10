@@ -113,3 +113,9 @@ registerBlockType( 'create-block/alecaddd-giveaway', {
 	 */
 	save,
 } );
+
+/**
+ * Child blocks
+ */
+import { metadata, name, settings } from './blocks/social-row';
+registerBlockType({ name, ...metadata }, settings);

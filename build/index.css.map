@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///editor.scss"],"names":[],"mappings":"AAAA;;;;EAIE","file":"index.css","sourcesContent":["/**\n * The following styles get applied inside the editor only.\n *\n * Replace them with your own styles or remove the file completely.\n */\n"],"sourceRoot":""}
+{"version":3,"sources":["webpack:///editor.scss"],"names":[],"mappings":"AAAA;;;;EAIE,C","file":"index.css","sourcesContent":["/**\n * The following styles get applied inside the editor only.\n *\n * Replace them with your own styles or remove the file completely.\n */"],"sourceRoot":""}
