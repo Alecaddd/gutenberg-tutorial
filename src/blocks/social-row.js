@@ -1,5 +1,14 @@
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, PanelRow, RadioControl } from "@wordpress/components";
+import {
+	PlainText,
+	useBlockProps,
+	InspectorControls,
+} from "@wordpress/block-editor";
+import {
+	PanelBody,
+	PanelRow,
+	RadioControl,
+	Dashicon,
+} from "@wordpress/components";
 
 import metadata from "./social-row-block.json";
 
@@ -56,7 +65,35 @@ export const settings = {
                         </PanelRow>
                     </PanelBody>
                 </InspectorControls>
-                { attributes.accountType }
+                { attributes.accountType == "twitter" && (
+					<div>
+						<Dashicon icon="twitter"/>
+						<PlainText
+							placeholder="Follow me on Twitter"
+							value={ attributes.twitter.text }
+							onChange={(value) => {
+								setAttributes({
+									twitter: { ...attributes.twitter, text: value },
+								});
+							}}
+						/>
+						<PlainText
+							placeholder="Your Twitter account"
+							value={ attributes.twitter.account }
+							onChange={(value) => {
+								setAttributes({
+									twitter: { ...attributes.twitter, account: value },
+								});
+							}}
+						/>
+					</div>
+				)}
+                { attributes.accountType == "tweet" && (
+					<Dashicon icon="twitter"/>
+				)}
+                { attributes.accountType == "youtube" && (
+					<Dashicon icon="youtube"/>
+				)}
             </div>
         );
 	},
